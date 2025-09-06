@@ -158,7 +158,7 @@ TextLabel_2.BorderSizePixel = 0
 TextLabel_2.Position = UDim2.new(0, 0, 0.389525354, 0)
 TextLabel_2.Size = UDim2.new(0, 1128, 0, 246)
 TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Dont leave the turret"
+TextLabel_2.Text = "Not every server will have diamonds"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextSize = 35.000
 
