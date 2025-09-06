@@ -122,7 +122,7 @@ NOTI.Name = "NOTI"
 NOTI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 NOTI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 NOTI.ResetOnSpawn = false
-NOTI.Enabled = false
+NOTI.Enabled = true
 
 Frame.Parent = NOTI
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
