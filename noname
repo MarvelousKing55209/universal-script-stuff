@@ -2,7 +2,7 @@ local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
-		queue_on_teleport("https://raw.githubusercontent.com/MarvelousKing55209/universal-script-stuff/refs/heads/main/noname'))()")
+		queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/MarvelousKing55209/universal-script-stuff/refs/heads/main/noname'))()")
 	end
 end)
 
