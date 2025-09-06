@@ -21,30 +21,23 @@ local Players = game:GetService("Players")
 
 local PlaceId = game.PlaceId  -- current place ID
 
--- Function to find a random valid server
+-- Function to find a random server with open slots
 local function GetRandomServer()
 	local servers = {}
 	local cursor = ""
 	
 	repeat
 		local url = "https://games.roblox.com/v1/games/" .. PlaceId .. "/servers/Public?sortOrder=Asc&limit=100&cursor=" .. cursor
-		local success, response = pcall(function()
-			return HttpService:JSONDecode(game:HttpGet(url))
-		end)
+		local response = HttpService:JSONDecode(game:HttpGet(url))
 		
-		if success and response and response.data then
-			for _, server in ipairs(response.data) do
-				-- Filter: only servers that are available and not full
-				if server.id and server.playing and server.maxPlayers 
-					and server.playing < server.maxPlayers then
-					table.insert(servers, server.id)
-				end
+		for _, server in ipairs(response.data) do
+			-- Only add servers that are NOT full
+			if server.playing < server.maxPlayers then
+				table.insert(servers, server.id)
 			end
-			
-			cursor = response.nextPageCursor or ""
-		else
-			cursor = ""
 		end
+		
+		cursor = response.nextPageCursor or ""
 	until #servers > 0 or cursor == ""
 	
 	if #servers > 0 then
@@ -54,12 +47,12 @@ local function GetRandomServer()
 	return nil
 end
 
--- Teleport the local player to a random open & valid server
+-- Teleport the local player to a random open server
 local player = Players.LocalPlayer
 local serverId = GetRandomServer()
 
+
 if serverId then
-	local success, err = pcall(function()
 
 for i, v in pairs(workspace.Items:GetChildren()) do 
 if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") then
@@ -80,7 +73,7 @@ end
 for i, v in pairs(workspace.Items:GetChildren()) do 
 if v.Name == "Stronghold Diamond Chest" and v:FindFirstChildOfClass("MeshPart") then 
 local part = v:FindFirstChildOfClass("MeshPart")
-local startTime = tick() 
+ local startTime = tick() 
 repeat 
 wait()
   if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -90,7 +83,7 @@ local args = {
 }
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestOpenItemChest"):FireServer(unpack(args))
 end
-until tick() - startTime >= 12 or game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") == nil or part == nil or part.Parent == nil or part.Parent.Parent == nil  
+until tick() - startTime >= 12 or game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") == nil or part == nil or part.Parent == nil or part.Parent.Parent == nil 
 end
 end
 wait(1)
@@ -110,13 +103,10 @@ until game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Char
 end
 end
 
-wait(10)
- print("2") 
+
   TeleportService:TeleportToPlaceInstance(PlaceId, serverId, player)
-end)
-	if not success then
-		warn("Teleport failed: " .. tostring(err))
-	end
 else
 	warn("No available servers found!")
 end
+
+
