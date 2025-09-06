@@ -17,6 +17,20 @@ print("3")
 
 
 
+
+local magicName = tostring(game.Players.LocalPlayer.UserId).."Opened"
+
+local function findDiamondAttribute(object)
+    local attributes = object:GetAttributes()
+    local tog = false
+    for name, value in pairs(attributes) do
+        if name == magicName and value == true then
+           tog = true -- return the attribute name and value
+        end
+    end
+    return tog
+end
+
 for i, v in pairs(workspace.Items:GetChildren()) do 
 if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") then 
 local part = v:FindFirstChildOfClass("MeshPart")
@@ -53,7 +67,7 @@ local args = {
 }
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("RequestOpenItemChest"):FireServer(unpack(args))
 end
-until tick() - startTime >= 12 or game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") == nil
+until tick() - startTime >= 12 or game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") == nil or v == nil or findDiamondAttribute(v) == true
 end
 end
 wait(1)
