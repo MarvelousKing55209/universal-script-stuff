@@ -15,11 +15,11 @@ end)
 wait(10)
 print("3")
 for i, v in pairs(workspace.Items:GetChildren()) do 
-if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") and and  part ~= nil and part.Parent ~= nil and part.Parent.Parent ~= nil  then
+if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") and part ~= nil and part.Parent ~= nil and part.Parent.Parent ~= nil  then
 local part = v:FindFirstChildOfClass("MeshPart")
 repeat 
 wait()
-  if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+  if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and part ~= nil and part.Parent ~= nil and part.Parent.Parent ~= nil  then
   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(part.Position)
 local args = {
 	v
@@ -48,7 +48,7 @@ end
 end
 wait(1)
 for i, v in pairs(workspace.Items:GetChildren()) do 
-if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") then
+if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") and part ~= nil and part.Parent ~= nil and part.Parent.Parent ~= nil  then
 local part = v:FindFirstChildOfClass("MeshPart")
 repeat 
 wait()
