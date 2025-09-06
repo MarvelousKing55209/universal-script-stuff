@@ -1,4 +1,5 @@
 print("222")
+local Players = game.Players
 local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if (not TeleportCheck) and queueteleport then
