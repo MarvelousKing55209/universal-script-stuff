@@ -73,8 +73,10 @@ until tick() - startTime >= 12 or game.Players.LocalPlayer.Character == nil or g
 end
 end
 
+
 if gTog == true then
-local hTog = false
+ local startTime2 = tick() 
+  local hTog = false
 repeat
 wait()
  for i, v in pairs(workspace.Items:GetChildren()) do 
@@ -83,7 +85,7 @@ hTog = true
   break
 end
 end
-until hTog == true
+until hTog == true or tick() - startTime2 >= 3
 end
 wait()
 
