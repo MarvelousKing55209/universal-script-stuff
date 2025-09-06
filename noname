@@ -1,4 +1,5 @@
 print("222")
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local Players = game.Players
 local TeleportCheck = false
 Players.LocalPlayer.OnTeleport:Connect(function(State)
