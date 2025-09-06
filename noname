@@ -17,14 +17,8 @@ print("3")
 
 
 for i, v in pairs(workspace.Items:GetChildren()) do 
-if v.Name == "Stronghold Diamond Chest" and (v:FindFirstChildOfClass("MeshPart") or v:FindFirstChild("Main")) then  
-local part = nil
-if v:FindFirstChildOfClass("MeshPart") then
-part = v:FindFirstChildOfClass("MeshPart")
-end
-if v:FindFirstChild("Main") then
-part = v.Main
-end
+if v.Name == "Diamond" and v:FindFirstChildOfClass("MeshPart") then 
+local part = v:FindFirstChildOfClass("MeshPart")
 repeat 
 wait()
   if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and part ~= nil and part.Parent ~= nil and part.Parent.Parent ~= nil  then
@@ -39,13 +33,13 @@ end
 end
 
 for i, v in pairs(workspace.Items:GetChildren()) do 
-if v.Name == "Stronghold Diamond Chest" and (v:FindFirstChildOfClass("MeshPart") or v:FindFirstChild("Main")) then  
+if v.Name == "Stronghold Diamond Chest" then
 local part = nil
-if v:FindFirstChildOfClass("MeshPart") then
-part = v:FindFirstChildOfClass("MeshPart")
+for ii, vv in pairs(v:GetDescendants()) do 
+if vv:IsA("MeshPart") pr vv:IsA("BasePart") then
+part = vv
+break
 end
-if v:FindFirstChild("Main") then
-part = v.Main
 end
 
  local startTime = tick() 
