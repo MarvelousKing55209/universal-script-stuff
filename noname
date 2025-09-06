@@ -6,10 +6,9 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if (not TeleportCheck) and queueteleport then
 		TeleportCheck = true
 		 queue_on_teleport([[[
-     repeat
+     while task.wait() do 
     loadstring(game:HttpGet('https://raw.githubusercontent.com/MarvelousKing55209/universal-script-stuff/refs/heads/main/noname'))()
-  wait()
-     until
+     end
      ]])
 	end
 end)
