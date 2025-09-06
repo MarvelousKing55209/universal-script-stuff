@@ -36,7 +36,7 @@ for i, v in pairs(workspace.Items:GetChildren()) do
 if v.Name == "Stronghold Diamond Chest" then
 local part = nil
 for ii, vv in pairs(v:GetDescendants()) do 
-if vv:IsA("MeshPart") pr vv:IsA("BasePart") then
+if vv:IsA("MeshPart") or vv:IsA("BasePart") then
 part = vv
 break
 end
