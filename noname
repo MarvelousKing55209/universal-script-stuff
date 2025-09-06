@@ -1,12 +1,6 @@
 
-
-local TeleportCheck = false
-Players.LocalPlayer.OnTeleport:Connect(function(State)
-	if (not TeleportCheck) and queueteleport then
-		TeleportCheck = true
-		queue_on_teleport([[
-
-  local TeleportService = game:GetService("TeleportService")
+print("1")
+local TeleportService = game:GetService("TeleportService")
 local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 
@@ -93,13 +87,9 @@ until game.Players.LocalPlayer.Character == nil or game.Players.LocalPlayer.Char
 end
 end
 
-
+wait(10)
+ print("2") 
   TeleportService:TeleportToPlaceInstance(PlaceId, serverId, player)
 else
 	warn("No available servers found!")
 end
-
-  
-  ]])
-	end
-end)
