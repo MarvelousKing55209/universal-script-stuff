@@ -86,7 +86,7 @@ local function getServer()
 
         if success and result and result.data then
             for _, server in ipairs(result.data) do
-                if server.id ~= currentJobId and server.playing < (server.maxPlayers - 1) then
+                if server.id ~= currentJobId and server.playing and server.playing ~= nil and server.playing < (server.maxPlayers - 1) then
                     table.insert(servers, server)
                 end
             end
